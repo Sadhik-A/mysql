@@ -1,5 +1,6 @@
  import  express   from "express";
  import  mysql from "mysql";
+ import  { body, validationResult } from 'express-validator';
  const app = express();
  const db = mysql.createConnection({
    host: "localhost",
@@ -9,6 +10,19 @@
  })
 
  app.use(express.json());
+
+
+ // user validation using express validator
+
+ app.post('/login',body('email').isEmail(),
+ body('password').isLength({min:5}).withMessage('password must be at least 5 characters long'),
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    return res.status(200).json("validation suscessfull");
+  })
 
 // get details  from database 
 
