@@ -58,3 +58,14 @@ module.exports.updateemployee = async (req, res) => {
   }
 };
 
+//get an employee with id
+
+module.exports.getemployeebyId = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const employee = await Employee.where({ id }).fetch();
+    res.json(employee);
+  } catch (error) {
+     return res.status(500).json(error);
+  }
+}

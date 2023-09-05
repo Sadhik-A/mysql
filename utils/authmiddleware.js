@@ -7,7 +7,7 @@ module.exports.verification = (req, res, next) => {
     req.userData = { userId: decodedToken.userId };
     next();
   } catch (error) {
-    return res.status(401).json({ error: 'Authentication failed' }); // Provide an error message
+    return res.status(401).json({ error: 'Authentication failed' }); 
   }
 };
 
