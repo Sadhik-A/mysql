@@ -16,7 +16,7 @@ module.exports.register = async (req, res) => {
     res.status(500).json(error.message);
   }
 }
-
+ add new method
 //jwt login
 module.exports.jwtlogin = async (req, res) => {
      try {
