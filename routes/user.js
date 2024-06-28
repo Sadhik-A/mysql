@@ -37,7 +37,7 @@ router.post(
     usercontrol.jwtlogin(req, res);
   }
 );
-
+new rouute added 
 
 
 
